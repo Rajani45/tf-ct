@@ -22,5 +22,5 @@ provider "commercetools" {
     client_secret= "YIS4PFFvhmmX2Okf2YIu9ses7XXnxgUv"
     oauth_url= "https://auth.us-central1.gcp.commercetools.com"
     api_url= "https://api.us-central1.gcp.commercetools.com"
-    scope:= "manage_project:hcl-devops view_api_clients:hcl-devops manage_api_clients:hcl-devops view_audit_log:hcl-devops"
+    scope = "manage_project:hcl-devops view_api_clients:hcl-devops manage_api_clients:hcl-devops view_audit_log:hcl-devops"
 }
