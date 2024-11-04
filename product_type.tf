@@ -1,4 +1,4 @@
-resource "commercetools_product_type" "my-product-type3" {
+resource "commercetools_product_type" "my-product-type003" {
   key         = "my-product-type-key3"
   name        = "Lens specification3"
   description = "All the specific info concerning the lens"
