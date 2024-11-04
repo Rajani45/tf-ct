@@ -14,6 +14,6 @@ provider "commercetools" {
   # project_key   = "naga-demo-project1"
   scopes          =  "manage_project:hcl-devops view_api_clients:hcl-devops manage_api_clients:hcl-devops view_audit_log:hcl-devops"
   # api_url       = "https://api.us-central1.gcp.commercetools.com"
-  #token_url     = "https://auth.us-central1.gcp.commercetools.com"  
+  token_url     = "https://auth.us-central1.gcp.commercetools.com"  
 # oauth_url="https://auth.us-central1.gcp.commercetools.com"
 }
