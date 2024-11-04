@@ -17,10 +17,10 @@ provider "commercetools" {
   #token_url     = "http://auth.us-central1.gcp.commercetools.com"  
 # oauth_url="https://auth.us-central1.gcp.commercetools.com"
 
-     project= "hcl-devops"
+     project_key= "hcl-devops"
     client_id= "WinjyxPqKX-6jVyMaSg3dNhP"
     client_secret= "YIS4PFFvhmmX2Okf2YIu9ses7XXnxgUv"
-    oauth_url= "https://auth.us-central1.gcp.commercetools.com"
+    token_url= "https://auth.us-central1.gcp.commercetools.com"
     api_url= "https://api.us-central1.gcp.commercetools.com"
-    scope = "manage_project:hcl-devops view_api_clients:hcl-devops manage_api_clients:hcl-devops view_audit_log:hcl-devops"
+    scopes = "manage_project:hcl-devops view_api_clients:hcl-devops manage_api_clients:hcl-devops view_audit_log:hcl-devops"
 }
