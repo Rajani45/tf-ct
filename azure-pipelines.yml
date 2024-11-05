@@ -1,22 +1,15 @@
 trigger:
-  branches:
-    include:
-      - master  # Adjust to your desired branch
+  - master  # Adjust based on your branch name
 
 pool:
   vmImage: 'ubuntu-latest'
 
-variables:
-  # Define a variable for manual approval
-  destroyApproval: 'false'  # Default is 'false' (no destruction)
-
 steps:
-# Step 1: Install Terraform
 - task: TerraformInstaller@0
   inputs:
     terraformVersion: '1.6.0'
 
-# Step 2: Initialize, Plan, and Apply (to create resources)
+# Step 1: Initialize, Plan, and Apply
 - script: |
     terraform init
     terraform plan
@@ -27,18 +20,12 @@ steps:
     TF_VAR_client_secret: $(CLIENT_SECRET)
   displayName: 'Initialize, Plan, and Apply Terraform'
 
-# Step 3: Check if 'destroyApproval' is true, then destroy resources
+# Step 2: Destroy the resources after creation
 - script: |
-    echo "Checking if terraform destroy should run"
-    if [ "$(destroyApproval)" == "true" ]; then
-      echo "Manual approval given. Running terraform destroy..."
-      terraform destroy
-    else
-      echo "No manual approval given. Skipping terraform destroy."
-    fi
+    terraform destroy -auto-approve
   env:
     TF_VAR_project_key: $(PROJECT_KEY)
     TF_VAR_client_id: $(CLIENT_ID)
     TF_VAR_client_secret: $(CLIENT_SECRET)
-  displayName: 'Terraform Destroy (Manual Approval Needed)'
-  condition: succeeded()  # Ensure the step only runs if previous steps succeeded
+  displayName: 'Destroy Terraform Resources'
+  condition: succeeded()
