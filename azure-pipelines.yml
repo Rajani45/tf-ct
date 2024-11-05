@@ -21,7 +21,7 @@ steps:
   displayName: 'Initialize, Plan, and Apply Terraform'
 
 # Step 2: Manual Approval for Destroy
-- task: ManualValidation@0
+- task: ManualValidation@1
   inputs:
     instructions: 'Approve to destroy the resources.'
     onTimeout: 'reject'
