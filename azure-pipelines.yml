@@ -1,5 +1,5 @@
 trigger:
-  - master  # Adjust based on your branch name
+  - none  # Adjust based on your branch name
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -20,14 +20,9 @@ steps:
     TF_VAR_client_secret: $(CLIENT_SECRET)
   displayName: 'Initialize, Plan, and Apply Terraform'
 
-# Step 2: Manual Approval for Destroy
-- task: ManualValidation
-  inputs:
-    instructions: 'Approve to destroy the resources.'
-    onTimeout: 'reject'
-  displayName: 'Manual Approval Before Destroy'
 
-# Step 3: Terraform Destroy (Manual Trigger)
+
+# Step 2 Terraform Destroy (Manual Trigger)
 - script: |
     terraform destroy -auto-approve
   env:
