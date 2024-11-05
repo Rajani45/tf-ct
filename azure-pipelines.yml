@@ -19,13 +19,3 @@ steps:
     TF_VAR_client_id: $(CLIENT_ID)
     TF_VAR_client_secret: $(CLIENT_SECRET)
   displayName: 'Initialize, Plan, and Apply Terraform'
-
-# Step 2: Destroy the resources after creation
-- script: |
-    terraform destroy -auto-approve
-  env:
-    TF_VAR_project_key: $(PROJECT_KEY)
-    TF_VAR_client_id: $(CLIENT_ID)
-    TF_VAR_client_secret: $(CLIENT_SECRET)
-  displayName: 'Destroy Terraform Resources'
-  condition: succeeded()
