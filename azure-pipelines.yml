@@ -7,7 +7,7 @@ pool:
 steps:
 - task: TerraformInstaller@0
   inputs:
-    terraformVersion: 'latest'
+    terraformVersion: '1.6.0'
 
 - script: |
     terraform init
